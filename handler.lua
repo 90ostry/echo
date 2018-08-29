@@ -23,6 +23,7 @@ function plugin:access(conf)
     local method = ngx.req.get_method()
     local querystring_params = ngx.req.get_uri_args()
     
+    if body == nil then body = "{}" end
     local body_size = string.len(body)
 
     encoded_headers, err = cjson.encode({headers = headers})
